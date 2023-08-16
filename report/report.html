@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <style>body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  /* do not increase min-width as some may use split screens */
+  min-width: 800px;
+  color: #999;
+}
+
+h1 {
+  font-size: 24px;
+  color: black;
+}
+
+h2 {
+  font-size: 16px;
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+a {
+  color: #999;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+#environment td {
+  padding: 5px;
+  border: 1px solid #E6E6E6;
+}
+#environment tr:nth-child(odd) {
+  background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed,
+.passed .col-result {
+  color: green;
+}
+
+span.skipped,
+span.xfailed,
+span.rerun,
+.skipped .col-result,
+.xfailed .col-result,
+.rerun .col-result {
+  color: orange;
+}
+
+span.error,
+span.failed,
+span.xpassed,
+.error .col-result,
+.failed .col-result,
+.xpassed .col-result {
+  color: red;
+}
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+#results-table {
+  border: 1px solid #e6e6e6;
+  color: #999;
+  font-size: 12px;
+  width: 100%;
+}
+#results-table th,
+#results-table td {
+  padding: 5px;
+  border: 1px solid #E6E6E6;
+  text-align: left;
+}
+#results-table th {
+  font-weight: bold;
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+.log {
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  color: black;
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  height: 230px;
+  overflow-y: scroll;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+.log:only-child {
+  height: inherit;
+}
+
+div.image {
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 320px;
+}
+div.image img {
+  width: 320px;
+}
+
+div.video {
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 320px;
+}
+div.video video {
+  overflow: hidden;
+  width: 320px;
+  height: 240px;
+}
+
+.collapsed {
+  display: none;
+}
+
+.expander::after {
+  content: " (show details)";
+  color: #BBB;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.collapser::after {
+  content: " (hide details)";
+  color: #BBB;
+  font-style: italic;
+  cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+  cursor: pointer;
+}
+
+.sort-icon {
+  font-size: 0px;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+  /*triangle*/
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.inactive .sort-icon {
+  /*finish triangle*/
+  border-top: 8px solid #E6E6E6;
+}
+.asc.active .sort-icon {
+  /*finish triangle*/
+  border-bottom: 8px solid #999;
+}
+.desc.active .sort-icon {
+  /*finish triangle*/
+  border-top: 8px solid #999;
+}
+</style></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) { // eslint-disable-line no-redeclare
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function findAll(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sortColumn(elem) {
+    toggleSortStates(elem);
+    const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    let key;
+    if (elem.classList.contains('result')) {
+        key = keyResult;
+    } else if (elem.classList.contains('links')) {
+        key = keyLink;
+    } else {
+        key = keyAlpha;
+    }
+    sortTable(elem, key(colIndex));
+}
+
+function showAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(showExtras);
+}
+
+function hideAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(hideExtras);
+}
+
+function showExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.remove('collapsed');
+    expandcollapse.classList.remove('expander');
+    expandcollapse.classList.add('collapser');
+}
+
+function hideExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.add('collapsed');
+    expandcollapse.classList.remove('collapser');
+    expandcollapse.classList.add('expander');
+}
+
+function showFilters() {
+    const filterItems = document.getElementsByClassName('filter');
+    for (let i = 0; i < filterItems.length; i++)
+        filterItems[i].hidden = false;
+}
+
+function addCollapse() {
+    // Add links for show/hide all
+    const resulttable = find('table#results-table');
+    const showhideall = document.createElement('p');
+    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
+                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    findAll('.col-result').forEach(function(elem) {
+        const collapsed = getQueryParameter('collapsed') || 'Passed';
+        const extras = elem.parentNode.nextElementSibling;
+        const expandcollapse = document.createElement('span');
+        if (extras.classList.contains('collapsed')) {
+            expandcollapse.classList.add('expander');
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add('collapsed');
+            expandcollapse.classList.add('expander');
+        } else {
+            expandcollapse.classList.add('collapser');
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener('click', function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
+                showExtras(event.currentTarget);
+            } else {
+                hideExtras(event.currentTarget);
+            }
+        });
+    });
+}
+
+function getQueryParameter(name) {
+    const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () { // eslint-disable-line no-unused-vars
+    resetSortHeaders();
+
+    addCollapse();
+
+    showFilters();
+
+    sortColumn(find('.initial-sort'));
+
+    findAll('.sortable').forEach(function(elem) {
+        elem.addEventListener('click',
+            function() {
+                sortColumn(elem);
+            }, false);
+    });
+}
+
+function sortTable(clicked, keyFunc) {
+    const rows = findAll('.results-table-row');
+    const reversed = !clicked.classList.contains('asc');
+    const sortedRows = sort(rows, keyFunc, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    const thead = document.getElementById('results-table-head');
+    document.getElementById('results-table').remove();
+    const parent = document.createElement('table');
+    parent.id = 'results-table';
+    parent.appendChild(thead);
+    sortedRows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName('BODY')[0].appendChild(parent);
+}
+
+function sort(items, keyFunc, reversed) {
+    const sortArray = items.map(function(item, i) {
+        return [keyFunc(item), i];
+    });
+
+    sortArray.sort(function(a, b) {
+        const keyA = a[0];
+        const keyB = b[0];
+
+        if (keyA == keyB) return 0;
+
+        if (reversed) {
+            return keyA < keyB ? 1 : -1;
+        } else {
+            return keyA > keyB ? 1 : -1;
+        }
+    });
+
+    return sortArray.map(function(item) {
+        const index = item[1];
+        return items[index];
+    });
+}
+
+function keyAlpha(colIndex) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
+    };
+}
+
+function keyLink(colIndex) {
+    return function(elem) {
+        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
+        return dataCell == null ? '' : dataCell.innerText.toLowerCase();
+    };
+}
+
+function keyResult(colIndex) {
+    return function(elem) {
+        const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+            'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
+    };
+}
+
+function resetSortHeaders() {
+    findAll('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    findAll('.sortable').forEach(function(elem) {
+        const icon = document.createElement('div');
+        icon.className = 'sort-icon';
+        icon.textContent = 'vvv';
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove('desc', 'active');
+        elem.classList.add('asc', 'inactive');
+    });
+}
+
+function toggleSortStates(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        resetSortHeaders();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function isAllRowsHidden(value) {
+    return value.hidden == false;
+}
+
+function filterTable(elem) { // eslint-disable-line no-unused-vars
+    const outcomeAtt = 'data-test-result';
+    const outcome = elem.getAttribute(outcomeAtt);
+    const classOutcome = outcome + ' results-table-row';
+    const outcomeRows = document.getElementsByClassName(classOutcome);
+
+    for(let i = 0; i < outcomeRows.length; i++){
+        outcomeRows[i].hidden = !elem.checked;
+    }
+
+    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
+    const allRowsHidden = rows.length == 0 ? true : false;
+    const notFoundMessage = document.getElementById('not-found-message');
+    notFoundMessage.hidden = !allRowsHidden;
+}
+</script>
+    <h1>report.html</h1>
+    <p>Report generated on 27-Oct-2022 at 11:33:22 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "1.0.0", "py": "1.11.0", "pytest": "7.1.2"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Windows-10-10.0.19041-SP0</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"Faker": "14.1.0", "html": "3.1.1", "metadata": "2.0.2"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.8.2</td></tr></table>
+    <h2>Summary</h2>
+    <p>30 tests ran in 7.45 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">25 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">5 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable" col="duration">Duration</th>
+          <th class="sortable links" col="links">Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict0-200-成功]</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;scripts.test_img.TestRegLogin object at 0x000001593F766FD0&gt;<br/>form_dict = {&#x27;dy_server&#x27;: &#x27;on&#x27;, &#x27;password&#x27;: &#x27;qqq123&#x27;, &#x27;phone&#x27;: &#x27;18779095386&#x27;, &#x27;phone_code&#x27;: &#x27;666666&#x27;, ...}, exp_status = 200, description = &#x27;成功&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;form_dict,exp_status,description&quot;, data3)<br/>    def test01_user_register(self,form_dict, exp_status, description):<br/>        self.obj.get_img_verify_code(&quot;123456&quot;)<br/>        mobile =form_dict.get(&quot;phone&quot;)<br/>        self.obj.get_phone_verify_code(mobile, &quot;8888&quot;)<br/>        req=self.obj.user_register(form_dict)<br/>        json_data = req.json()<br/>        assert 200 == req.status_code<br/>&gt;       assert json_data.get(&quot;status&quot;) == exp_status<br/><span class="error">E       AssertionError: assert 100 == 200</span><br/><span class="error">E        +  where 100 = &lt;built-in method get of dict object at 0x000001593EE58FC0&gt;(&#x27;status&#x27;)</span><br/><span class="error">E        +    where &lt;built-in method get of dict object at 0x000001593EE58FC0&gt; = {&#x27;description&#x27;: &#x27;手机已存在!&#x27;, &#x27;status&#x27;: 100}.get</span><br/><br/>scripts\test_img.py:42: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;手机已存在!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict1-200-成功]</td>
+          <td class="col-duration">0.13</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;scripts.test_img.TestRegLogin object at 0x000001593F7780A0&gt;<br/>form_dict = {&#x27;dy_server&#x27;: &#x27;on&#x27;, &#x27;invite_phone&#x27;: &#x27;18779095386&#x27;, &#x27;password&#x27;: &#x27;qqq123&#x27;, &#x27;phone&#x27;: &#x27;18712345678&#x27;, ...}, exp_status = 200, description = &#x27;成功&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;form_dict,exp_status,description&quot;, data3)<br/>    def test01_user_register(self,form_dict, exp_status, description):<br/>        self.obj.get_img_verify_code(&quot;123456&quot;)<br/>        mobile =form_dict.get(&quot;phone&quot;)<br/>        self.obj.get_phone_verify_code(mobile, &quot;8888&quot;)<br/>        req=self.obj.user_register(form_dict)<br/>        json_data = req.json()<br/>        assert 200 == req.status_code<br/>&gt;       assert json_data.get(&quot;status&quot;) == exp_status<br/><span class="error">E       AssertionError: assert 100 == 200</span><br/><span class="error">E        +  where 100 = &lt;built-in method get of dict object at 0x000001593EEAB340&gt;(&#x27;status&#x27;)</span><br/><span class="error">E        +    where &lt;built-in method get of dict object at 0x000001593EEAB340&gt; = {&#x27;description&#x27;: &#x27;手机已存在!&#x27;, &#x27;status&#x27;: 100}.get</span><br/><br/>scripts\test_img.py:42: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;手机已存在!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict4-100-错误]</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;scripts.test_img.TestRegLogin object at 0x000001593F778250&gt;<br/>form_dict = {&#x27;dy_server&#x27;: &#x27;on&#x27;, &#x27;password&#x27;: &#x27;qqq123&#x27;, &#x27;phone&#x27;: &#x27;18779095386&#x27;, &#x27;phone_code&#x27;: &#x27;666688&#x27;, ...}, exp_status = 100, description = &#x27;错误&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;form_dict,exp_status,description&quot;, data3)<br/>    def test01_user_register(self,form_dict, exp_status, description):<br/>        self.obj.get_img_verify_code(&quot;123456&quot;)<br/>        mobile =form_dict.get(&quot;phone&quot;)<br/>        self.obj.get_phone_verify_code(mobile, &quot;8888&quot;)<br/>        req=self.obj.user_register(form_dict)<br/>        json_data = req.json()<br/>        assert 200 == req.status_code<br/>        assert json_data.get(&quot;status&quot;) == exp_status<br/>&gt;       assert description in json_data.get(&quot;description&quot;)<br/><span class="error">E       AssertionError: assert &#x27;错误&#x27; in &#x27;手机已存在!&#x27;</span><br/><span class="error">E        +  where &#x27;手机已存在!&#x27; = &lt;built-in method get of dict object at 0x000001593EE60980&gt;(&#x27;description&#x27;)</span><br/><span class="error">E        +    where &lt;built-in method get of dict object at 0x000001593EE60980&gt; = {&#x27;description&#x27;: &#x27;手机已存在!&#x27;, &#x27;status&#x27;: 100}.get</span><br/><br/>scripts\test_img.py:43: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;手机已存在!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict7-100-密码不能为空]</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;scripts.test_img.TestRegLogin object at 0x000001593F778400&gt;<br/>form_dict = {&#x27;dy_server&#x27;: &#x27;on&#x27;, &#x27;password&#x27;: &#x27;&#x27;, &#x27;phone&#x27;: &#x27;18923874832&#x27;, &#x27;phone_code&#x27;: &#x27;666666&#x27;, ...}, exp_status = 100, description = &#x27;密码不能为空&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;form_dict,exp_status,description&quot;, data3)<br/>    def test01_user_register(self,form_dict, exp_status, description):<br/>        self.obj.get_img_verify_code(&quot;123456&quot;)<br/>        mobile =form_dict.get(&quot;phone&quot;)<br/>        self.obj.get_phone_verify_code(mobile, &quot;8888&quot;)<br/>        req=self.obj.user_register(form_dict)<br/>        json_data = req.json()<br/>        assert 200 == req.status_code<br/>        assert json_data.get(&quot;status&quot;) == exp_status<br/>&gt;       assert description in json_data.get(&quot;description&quot;)<br/><span class="error">E       AssertionError: assert &#x27;密码不能为空&#x27; in &#x27;手机已存在!&#x27;</span><br/><span class="error">E        +  where &#x27;手机已存在!&#x27; = &lt;built-in method get of dict object at 0x000001593EEC21C0&gt;(&#x27;description&#x27;)</span><br/><span class="error">E        +    where &lt;built-in method get of dict object at 0x000001593EEC21C0&gt; = {&#x27;description&#x27;: &#x27;手机已存在!&#x27;, &#x27;status&#x27;: 100}.get</span><br/><br/>scripts\test_img.py:43: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;手机已存在!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict8-100-我们的条款]</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;scripts.test_img.TestRegLogin object at 0x000001593F778490&gt;<br/>form_dict = {&#x27;dy_server&#x27;: &#x27;off&#x27;, &#x27;password&#x27;: &#x27;qqq123&#x27;, &#x27;phone&#x27;: &#x27;19834035891&#x27;, &#x27;phone_code&#x27;: &#x27;666666&#x27;, ...}, exp_status = 100, description = &#x27;我们的条款&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;form_dict,exp_status,description&quot;, data3)<br/>    def test01_user_register(self,form_dict, exp_status, description):<br/>        self.obj.get_img_verify_code(&quot;123456&quot;)<br/>        mobile =form_dict.get(&quot;phone&quot;)<br/>        self.obj.get_phone_verify_code(mobile, &quot;8888&quot;)<br/>        req=self.obj.user_register(form_dict)<br/>        json_data = req.json()<br/>        assert 200 == req.status_code<br/>        assert json_data.get(&quot;status&quot;) == exp_status<br/>&gt;       assert description in json_data.get(&quot;description&quot;)<br/><span class="error">E       AssertionError: assert &#x27;我们的条款&#x27; in &#x27;手机已存在!&#x27;</span><br/><span class="error">E        +  where &#x27;手机已存在!&#x27; = &lt;built-in method get of dict object at 0x000001593EE4AB80&gt;(&#x27;description&#x27;)</span><br/><span class="error">E        +    where &lt;built-in method get of dict object at 0x000001593EE4AB80&gt; = {&#x27;description&#x27;: &#x27;手机已存在!&#x27;, &#x27;status&#x27;: 100}.get</span><br/><br/>scripts\test_img.py:43: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;手机已存在!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testOpenAccount.py::TestOpenAccount::test_realname</td>
+          <td class="col-duration">0.44</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:15,969 INFO [root] [open_account.py(realname:22)] - 实名认证的信息{&#x27;status&#x27;: 200, &#x27;data&#x27;: {&#x27;card_id&#x27;: &#x27;360****816&#x27;, &#x27;realname&#x27;: &#x27;潘**&#x27;}, &#x27;description&#x27;: &#x27;提交成功!&#x27;}
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:open_account.py:22 实名认证的信息{&#x27;status&#x27;: 200, &#x27;data&#x27;: {&#x27;card_id&#x27;: &#x27;360****816&#x27;, &#x27;realname&#x27;: &#x27;潘**&#x27;}, &#x27;description&#x27;: &#x27;提交成功!&#x27;}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testOpenAccount.py::TestOpenAccount::test01_account</td>
+          <td class="col-duration">0.24</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:16,212 INFO [root] [open_account.py(open_account:32)] - 实名认证的信息{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &quot;&lt;form name=&#x27;easypaysubmit&#x27; id=&#x27;easypaysubmit&#x27; target=&#x27;_blank&#x27; method=&#x27;post&#x27; action=&#x27;http://121.43.169.97:8000/muser/publicRequests&#x27;&gt;&lt;input name=&#x27;Version&#x27; type=&#x27;hidden&#x27; value=&#x27;10&#x27;/&gt;&lt;input name=&#x27;CmdId&#x27; type=&#x27;hidden&#x27; value=&#x27;UserRegister&#x27;/&gt;&lt;input name=&#x27;MerCustId&#x27; type=&#x27;hidden&#x27; value=&#x27;6000060007313892&#x27;/&gt;&lt;input name=&#x27;BgRetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;https://www.baidu.com/&#x27;/&gt;&lt;input name=&#x27;RetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/register/return/22102711331716184096&#x27;/&gt;&lt;input name=&#x27;UsrId&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;UsrName&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;IdType&#x27; type=&#x27;hidden&#x27; value=&#x27;00&#x27;/&gt;&lt;input name=&#x27;IdNo&#x27; type=&#x27;hidden&#x27; value=&#x27;360721199803074816&#x27;/&gt;&lt;input name=&#x27;UsrMp&#x27; type=&#x27;hidden&#x27; value=&#x27;18779095386&#x27;/&gt;&lt;input name=&#x27;UsrEmail&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;MerPriv&#x27; type=&#x27;hidden&#x27; value=&#x27;22102711331716184096&#x27;/&gt;&lt;input name=&#x27;ChkValue&#x27; type=&#x27;hidden&#x27; value=&#x27;-101&#x27;/&gt;&lt;input name=&#x27;CharSet&#x27; type=&#x27;hidden&#x27; value=&#x27;UTF-8&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[&#x27;easypaysubmit&#x27;].submit();&lt;/script&gt;&quot;}}
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:open_account.py:32 实名认证的信息{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &quot;&lt;form name=&#x27;easypaysubmit&#x27; id=&#x27;easypaysubmit&#x27; target=&#x27;_blank&#x27; method=&#x27;post&#x27; action=&#x27;http://121.43.169.97:8000/muser/publicRequests&#x27;&gt;&lt;input name=&#x27;Version&#x27; type=&#x27;hidden&#x27; value=&#x27;10&#x27;/&gt;&lt;input name=&#x27;CmdId&#x27; type=&#x27;hidden&#x27; value=&#x27;UserRegister&#x27;/&gt;&lt;input name=&#x27;MerCustId&#x27; type=&#x27;hidden&#x27; value=&#x27;6000060007313892&#x27;/&gt;&lt;input name=&#x27;BgRetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;https://www.baidu.com/&#x27;/&gt;&lt;input name=&#x27;RetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/register/return/22102711331716184096&#x27;/&gt;&lt;input name=&#x27;UsrId&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;UsrName&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;IdType&#x27; type=&#x27;hidden&#x27; value=&#x27;00&#x27;/&gt;&lt;input name=&#x27;IdNo&#x27; type=&#x27;hidden&#x27; value=&#x27;360721199803074816&#x27;/&gt;&lt;input name=&#x27;UsrMp&#x27; type=&#x27;hidden&#x27; value=&#x27;18779095386&#x27;/&gt;&lt;input name=&#x27;UsrEmail&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;MerPriv&#x27; type=&#x27;hidden&#x27; value=&#x27;22102711331716184096&#x27;/&gt;&lt;input name=&#x27;ChkValue&#x27; type=&#x27;hidden&#x27; value=&#x27;-101&#x27;/&gt;&lt;input name=&#x27;CharSet&#x27; type=&#x27;hidden&#x27; value=&#x27;UTF-8&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[&#x27;easypaysubmit&#x27;].submit();&lt;/script&gt;&quot;}}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testOpenAccount.py::TestOpenAccount::test02_thrid_account</td>
+          <td class="col-duration">2.04</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+http://121.43.169.97:8000/muser/publicRequests {&#x27;Version&#x27;: &#x27;10&#x27;, &#x27;CmdId&#x27;: &#x27;UserRegister&#x27;, &#x27;MerCustId&#x27;: &#x27;6000060007313892&#x27;, &#x27;BgRetUrl&#x27;: &#x27;https://www.baidu.com/&#x27;, &#x27;RetUrl&#x27;: &#x27;http://user-p2p-test.itheima.net/trust/chinapnr/register/return/22102711331731166696&#x27;, &#x27;UsrId&#x27;: &#x27;&#x27;, &#x27;UsrName&#x27;: &#x27;&#x27;, &#x27;IdType&#x27;: &#x27;00&#x27;, &#x27;IdNo&#x27;: &#x27;360721199803074816&#x27;, &#x27;UsrMp&#x27;: &#x27;18779095386&#x27;, &#x27;UsrEmail&#x27;: &#x27;&#x27;, &#x27;MerPriv&#x27;: &#x27;22102711331731166696&#x27;, &#x27;ChkValue&#x27;: &#x27;-101&#x27;, &#x27;CharSet&#x27;: &#x27;UTF-8&#x27;}
+code 200
+UserRegister OK
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:16,361 INFO [root] [open_account.py(open_account:32)] - 实名认证的信息{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &quot;&lt;form name=&#x27;easypaysubmit&#x27; id=&#x27;easypaysubmit&#x27; target=&#x27;_blank&#x27; method=&#x27;post&#x27; action=&#x27;http://121.43.169.97:8000/muser/publicRequests&#x27;&gt;&lt;input name=&#x27;Version&#x27; type=&#x27;hidden&#x27; value=&#x27;10&#x27;/&gt;&lt;input name=&#x27;CmdId&#x27; type=&#x27;hidden&#x27; value=&#x27;UserRegister&#x27;/&gt;&lt;input name=&#x27;MerCustId&#x27; type=&#x27;hidden&#x27; value=&#x27;6000060007313892&#x27;/&gt;&lt;input name=&#x27;BgRetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;https://www.baidu.com/&#x27;/&gt;&lt;input name=&#x27;RetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/register/return/22102711331731166696&#x27;/&gt;&lt;input name=&#x27;UsrId&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;UsrName&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;IdType&#x27; type=&#x27;hidden&#x27; value=&#x27;00&#x27;/&gt;&lt;input name=&#x27;IdNo&#x27; type=&#x27;hidden&#x27; value=&#x27;360721199803074816&#x27;/&gt;&lt;input name=&#x27;UsrMp&#x27; type=&#x27;hidden&#x27; value=&#x27;18779095386&#x27;/&gt;&lt;input name=&#x27;UsrEmail&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;MerPriv&#x27; type=&#x27;hidden&#x27; value=&#x27;22102711331731166696&#x27;/&gt;&lt;input name=&#x27;ChkValue&#x27; type=&#x27;hidden&#x27; value=&#x27;-101&#x27;/&gt;&lt;input name=&#x27;CharSet&#x27; type=&#x27;hidden&#x27; value=&#x27;UTF-8&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[&#x27;easypaysubmit&#x27;].submit();&lt;/script&gt;&quot;}}
+2022-10-27 11:33:18,266 INFO [root] [open_account.py(thrid_open_account:43)] - 实名认证的信息UserRegister OK
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:open_account.py:32 实名认证的信息{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &quot;&lt;form name=&#x27;easypaysubmit&#x27; id=&#x27;easypaysubmit&#x27; target=&#x27;_blank&#x27; method=&#x27;post&#x27; action=&#x27;http://121.43.169.97:8000/muser/publicRequests&#x27;&gt;&lt;input name=&#x27;Version&#x27; type=&#x27;hidden&#x27; value=&#x27;10&#x27;/&gt;&lt;input name=&#x27;CmdId&#x27; type=&#x27;hidden&#x27; value=&#x27;UserRegister&#x27;/&gt;&lt;input name=&#x27;MerCustId&#x27; type=&#x27;hidden&#x27; value=&#x27;6000060007313892&#x27;/&gt;&lt;input name=&#x27;BgRetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;https://www.baidu.com/&#x27;/&gt;&lt;input name=&#x27;RetUrl&#x27; type=&#x27;hidden&#x27; value=&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/register/return/22102711331731166696&#x27;/&gt;&lt;input name=&#x27;UsrId&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;UsrName&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;IdType&#x27; type=&#x27;hidden&#x27; value=&#x27;00&#x27;/&gt;&lt;input name=&#x27;IdNo&#x27; type=&#x27;hidden&#x27; value=&#x27;360721199803074816&#x27;/&gt;&lt;input name=&#x27;UsrMp&#x27; type=&#x27;hidden&#x27; value=&#x27;18779095386&#x27;/&gt;&lt;input name=&#x27;UsrEmail&#x27; type=&#x27;hidden&#x27; value=&#x27;&#x27;/&gt;&lt;input name=&#x27;MerPriv&#x27; type=&#x27;hidden&#x27; value=&#x27;22102711331731166696&#x27;/&gt;&lt;input name=&#x27;ChkValue&#x27; type=&#x27;hidden&#x27; value=&#x27;-101&#x27;/&gt;&lt;input name=&#x27;CharSet&#x27; type=&#x27;hidden&#x27; value=&#x27;UTF-8&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[&#x27;easypaysubmit&#x27;].submit();&lt;/script&gt;&quot;}}
+INFO     root:open_account.py:43 实名认证的信息UserRegister OK<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testRegLogin.py::TestRegLogin::test01_img_verify_code</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>None
+None
+None
+None
+<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testRegLogin.py::TestRegLogin::test02_phone_verify_code</td>
+          <td class="col-duration">0.05</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testRegLogin.py::TestRegLogin::test03_register</td>
+          <td class="col-duration">0.06</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取注册接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;data&#x27;: {&#x27;isLogin&#x27;: &#x27;1&#x27;}, &#x27;description&#x27;: &#x27;注册成功&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/testRegLogin.py::TestRegLogin::test04_user_login</td>
+          <td class="col-duration">0.05</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_img_verify_code[0.1234566-200]</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>None
+None
+None
+None
+<br/> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_img_verify_code[1234566-200]</td>
+          <td class="col-duration">0.04</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_phone_verify_code[15814662511-8888-200-成功]</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_phone_verify_code[15814662512-8887-100-错误]</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;图片验证码错误&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_phone_verify_code[15814662513--100-错误]</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;图片验证码错误&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict2-100-错误]</td>
+          <td class="col-duration">0.13</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;验证码错误!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict3-100-不能为空]</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;验证码不能为空!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict5-100-不能为空]</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;短信验证码不能为空&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_register[form_dict6-100-已存在]</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取注册接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;手机已存在!&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_login[18779095386-qqq123-200-成功]</td>
+          <td class="col-duration">0.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_login[-123321-100-用户名不能为空]</td>
+          <td class="col-duration">0.13</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 100}
+获取登录接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;用户名不能为空&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_login[18723456789-123321-100-用户不存在]</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取登录接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;用户不存在&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_img.py::TestRegLogin::test01_user_login[18779093321--100-密码不能为空]</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取图片验证码接口的响应状态码：200
+获取短信验证码接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;短信发送成功&#x27;}
+获取登录接口的响应体数据：{&#x27;status&#x27;: 100, &#x27;description&#x27;: &#x27;密码不能为空&#x27;}
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_invest.py::TestTender::test01_tender</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:21,321 INFO [root] [invest.py(invest:14)] - 投资返回的数据是{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &#x27;&lt;form name=\&#x27;easypaysubmit\&#x27; id=\&#x27;easypaysubmit\&#x27; target=\&#x27;_blank\&#x27; method=\&#x27;post\&#x27; action=\&#x27;http://121.43.169.97:8000/muser/publicRequests\&#x27;&gt;&lt;input name=\&#x27;Version\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20\&#x27;/&gt;&lt;input name=\&#x27;CmdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;InitiativeTender\&#x27;/&gt;&lt;input name=\&#x27;MerCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6000060007313892\&#x27;/&gt;&lt;input name=\&#x27;OrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332226850296\&#x27;/&gt;&lt;input name=\&#x27;OrdDate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20221027\&#x27;/&gt;&lt;input name=\&#x27;TransAmt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;1000.00\&#x27;/&gt;&lt;input name=\&#x27;UsrCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6020221027113319\&#x27;/&gt;&lt;input name=\&#x27;MaxTenderRate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;0.20\&#x27;/&gt;&lt;input name=\&#x27;BorrowerDetails\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;[{&quot;BorrowerCustId&quot;:&quot;6021234507160403&quot;,&quot;BorrowerAmt&quot;:&quot;1000.00&quot;,&quot;BorrowerRate&quot;:&quot;0.90&quot;,&quot;ProId&quot;:&quot;&quot;}]\&#x27;/&gt;&lt;input name=\&#x27;IsFreeze\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;Y\&#x27;/&gt;&lt;input name=\&#x27;FreezeOrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332226850296\&#x27;/&gt;&lt;input name=\&#x27;RetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/tender/return/22102711332226850296\&#x27;/&gt;&lt;input name=\&#x27;BgRetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;https://www.baidu.com/\&#x27;/&gt;&lt;input name=\&#x27;MerPriv\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ReqExt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ChkValue\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;-101\&#x27;/&gt;&lt;input name=\&#x27;CharSet\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;UTF-8\&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[\&#x27;easypaysubmit\&#x27;].submit();&lt;/script&gt;&#x27;}}
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:invest.py:14 投资返回的数据是{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &#x27;&lt;form name=\&#x27;easypaysubmit\&#x27; id=\&#x27;easypaysubmit\&#x27; target=\&#x27;_blank\&#x27; method=\&#x27;post\&#x27; action=\&#x27;http://121.43.169.97:8000/muser/publicRequests\&#x27;&gt;&lt;input name=\&#x27;Version\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20\&#x27;/&gt;&lt;input name=\&#x27;CmdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;InitiativeTender\&#x27;/&gt;&lt;input name=\&#x27;MerCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6000060007313892\&#x27;/&gt;&lt;input name=\&#x27;OrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332226850296\&#x27;/&gt;&lt;input name=\&#x27;OrdDate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20221027\&#x27;/&gt;&lt;input name=\&#x27;TransAmt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;1000.00\&#x27;/&gt;&lt;input name=\&#x27;UsrCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6020221027113319\&#x27;/&gt;&lt;input name=\&#x27;MaxTenderRate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;0.20\&#x27;/&gt;&lt;input name=\&#x27;BorrowerDetails\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;[{&quot;BorrowerCustId&quot;:&quot;6021234507160403&quot;,&quot;BorrowerAmt&quot;:&quot;1000.00&quot;,&quot;BorrowerRate&quot;:&quot;0.90&quot;,&quot;ProId&quot;:&quot;&quot;}]\&#x27;/&gt;&lt;input name=\&#x27;IsFreeze\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;Y\&#x27;/&gt;&lt;input name=\&#x27;FreezeOrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332226850296\&#x27;/&gt;&lt;input name=\&#x27;RetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/tender/return/22102711332226850296\&#x27;/&gt;&lt;input name=\&#x27;BgRetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;https://www.baidu.com/\&#x27;/&gt;&lt;input name=\&#x27;MerPriv\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ReqExt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ChkValue\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;-101\&#x27;/&gt;&lt;input name=\&#x27;CharSet\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;UTF-8\&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[\&#x27;easypaysubmit\&#x27;].submit();&lt;/script&gt;&#x27;}}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_invest.py::TestTender::test02_third_tender</td>
+          <td class="col-duration">0.43</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:21,460 INFO [root] [invest.py(invest:14)] - 投资返回的数据是{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &#x27;&lt;form name=\&#x27;easypaysubmit\&#x27; id=\&#x27;easypaysubmit\&#x27; target=\&#x27;_blank\&#x27; method=\&#x27;post\&#x27; action=\&#x27;http://121.43.169.97:8000/muser/publicRequests\&#x27;&gt;&lt;input name=\&#x27;Version\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20\&#x27;/&gt;&lt;input name=\&#x27;CmdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;InitiativeTender\&#x27;/&gt;&lt;input name=\&#x27;MerCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6000060007313892\&#x27;/&gt;&lt;input name=\&#x27;OrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332240947896\&#x27;/&gt;&lt;input name=\&#x27;OrdDate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20221027\&#x27;/&gt;&lt;input name=\&#x27;TransAmt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;1000.00\&#x27;/&gt;&lt;input name=\&#x27;UsrCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6020221027113319\&#x27;/&gt;&lt;input name=\&#x27;MaxTenderRate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;0.20\&#x27;/&gt;&lt;input name=\&#x27;BorrowerDetails\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;[{&quot;BorrowerCustId&quot;:&quot;6021234507160403&quot;,&quot;BorrowerAmt&quot;:&quot;1000.00&quot;,&quot;BorrowerRate&quot;:&quot;0.90&quot;,&quot;ProId&quot;:&quot;&quot;}]\&#x27;/&gt;&lt;input name=\&#x27;IsFreeze\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;Y\&#x27;/&gt;&lt;input name=\&#x27;FreezeOrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332240947896\&#x27;/&gt;&lt;input name=\&#x27;RetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/tender/return/22102711332240947896\&#x27;/&gt;&lt;input name=\&#x27;BgRetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;https://www.baidu.com/\&#x27;/&gt;&lt;input name=\&#x27;MerPriv\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ReqExt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ChkValue\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;-101\&#x27;/&gt;&lt;input name=\&#x27;CharSet\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;UTF-8\&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[\&#x27;easypaysubmit\&#x27;].submit();&lt;/script&gt;&#x27;}}
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:invest.py:14 投资返回的数据是{&#x27;status&#x27;: 200, &#x27;description&#x27;: {&#x27;form&#x27;: &#x27;&lt;form name=\&#x27;easypaysubmit\&#x27; id=\&#x27;easypaysubmit\&#x27; target=\&#x27;_blank\&#x27; method=\&#x27;post\&#x27; action=\&#x27;http://121.43.169.97:8000/muser/publicRequests\&#x27;&gt;&lt;input name=\&#x27;Version\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20\&#x27;/&gt;&lt;input name=\&#x27;CmdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;InitiativeTender\&#x27;/&gt;&lt;input name=\&#x27;MerCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6000060007313892\&#x27;/&gt;&lt;input name=\&#x27;OrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332240947896\&#x27;/&gt;&lt;input name=\&#x27;OrdDate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;20221027\&#x27;/&gt;&lt;input name=\&#x27;TransAmt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;1000.00\&#x27;/&gt;&lt;input name=\&#x27;UsrCustId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;6020221027113319\&#x27;/&gt;&lt;input name=\&#x27;MaxTenderRate\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;0.20\&#x27;/&gt;&lt;input name=\&#x27;BorrowerDetails\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;[{&quot;BorrowerCustId&quot;:&quot;6021234507160403&quot;,&quot;BorrowerAmt&quot;:&quot;1000.00&quot;,&quot;BorrowerRate&quot;:&quot;0.90&quot;,&quot;ProId&quot;:&quot;&quot;}]\&#x27;/&gt;&lt;input name=\&#x27;IsFreeze\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;Y\&#x27;/&gt;&lt;input name=\&#x27;FreezeOrdId\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;22102711332240947896\&#x27;/&gt;&lt;input name=\&#x27;RetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;http://user-p2p-test.itheima.net/trust/chinapnr/tender/return/22102711332240947896\&#x27;/&gt;&lt;input name=\&#x27;BgRetUrl\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;https://www.baidu.com/\&#x27;/&gt;&lt;input name=\&#x27;MerPriv\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ReqExt\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;\&#x27;/&gt;&lt;input name=\&#x27;ChkValue\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;-101\&#x27;/&gt;&lt;input name=\&#x27;CharSet\&#x27; type=\&#x27;hidden\&#x27; value=\&#x27;UTF-8\&#x27;/&gt;&lt;/form&gt;&lt;script&gt;document.forms[\&#x27;easypaysubmit\&#x27;].submit();&lt;/script&gt;&#x27;}}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_recharge.py::TestRecharge::test_recharge_verify</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+&lt;Response [200]&gt;
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:21,917 INFO [root] [recharge_api.py(recharge_verify:13)] - &lt;Response [200]&gt;
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:recharge_api.py:13 &lt;Response [200]&gt;<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_recharge.py::TestRecharge::test_recharge</td>
+          <td class="col-duration">0.20</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:22,068 INFO [root] [recharge_api.py(recharge_verify:13)] - &lt;Response [200]&gt;
+2022-10-27 11:33:22,121 INFO [root] [recharge_api.py(recharge:24)] - &lt;Response [200]&gt;
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:recharge_api.py:13 &lt;Response [200]&gt;
+INFO     root:recharge_api.py:24 &lt;Response [200]&gt;<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">scripts/test_recharge.py::TestRecharge::test_third_recharge</td>
+          <td class="col-duration">0.52</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>获取登录接口的响应体数据：{&#x27;status&#x27;: 200, &#x27;description&#x27;: &#x27;登录成功&#x27;}
+http://121.43.169.97:8000/muser/publicRequests {&#x27;Version&#x27;: &#x27;10&#x27;, &#x27;CmdId&#x27;: &#x27;NetSave&#x27;, &#x27;MerCustId&#x27;: &#x27;6000060007313892&#x27;, &#x27;UsrCustId&#x27;: &#x27;6020221027113319&#x27;, &#x27;OrdId&#x27;: &#x27;22102711332326351496&#x27;, &#x27;OrdDate&#x27;: &#x27;20221027&#x27;, &#x27;GateBusiId&#x27;: &#x27;B2C&#x27;, &#x27;OpenBankId&#x27;: &#x27;&#x27;, &#x27;DcFlag&#x27;: &#x27;D&#x27;, &#x27;TransAmt&#x27;: &#x27;10000.00&#x27;, &#x27;RetUrl&#x27;: &#x27;http://user-p2p-test.itheima.net/trust/chinapnr/recharge/return/22102711332326351496&#x27;, &#x27;BgRetUrl&#x27;: &#x27;https://www.baidu.com/&#x27;, &#x27;OpenAcctId&#x27;: &#x27;&#x27;, &#x27;CertId&#x27;: &#x27;&#x27;, &#x27;MerPriv&#x27;: &#x27;1496&#x27;, &#x27;ChkValue&#x27;: &#x27;-101&#x27;, &#x27;CharSet&#x27;: &#x27;UTF-8&#x27;}
+NetSave OK
+<br/> ------------------------------Captured stderr call------------------------------ <br/>2022-10-27 11:33:22,260 INFO [root] [recharge_api.py(recharge_verify:13)] - &lt;Response [200]&gt;
+2022-10-27 11:33:22,310 INFO [root] [recharge_api.py(recharge:24)] - &lt;Response [200]&gt;
+2022-10-27 11:33:22,646 INFO [root] [recharge_api.py(third_recharge:29)] - NetSave OK
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:recharge_api.py:13 &lt;Response [200]&gt;
+INFO     root:recharge_api.py:24 &lt;Response [200]&gt;
+INFO     root:recharge_api.py:29 NetSave OK<br/></div></td></tr></tbody></table></body></html>
