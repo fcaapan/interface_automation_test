@@ -1,4 +1,6 @@
 import pymysql
+
+from common.logginger import logger
 from config import *
 #获取config文件的数据库信息
 DB_CONF = {
@@ -8,7 +10,7 @@ DB_CONF = {
     "password": mysql_config["MYSQL_PASSWD"],
     "db": mysql_config["MYSQL_DB"]
 }
-logging.info("数据库的配置信息 %s " % DB_CONF)
+logger.info("数据库的配置信息 %s " % DB_CONF)
 
 #测试拆包
 # def test(**kwargs):
@@ -52,9 +54,10 @@ class MysqlDb():
             self.conn.commit()
             return f'受影响的行{self.cur.rowcount}'
         except Exception as e:
-            logging.info("操作MySQL出现错误，错误原因：{}".format(e))
+            logger.info("操作MySQL出现错误，错误原因：{}".format(e))
             # 回滚所有更改
             self.conn.rollback()
+        logger.info("执行完毕")
 
 
 

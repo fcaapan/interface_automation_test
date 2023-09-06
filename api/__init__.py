@@ -1,3 +1,5 @@
-from config import init_log_config
+import os,sys
 
-init_log_config()
+sys.path.append(os.getcwd())
+from common.logginger import logger
+

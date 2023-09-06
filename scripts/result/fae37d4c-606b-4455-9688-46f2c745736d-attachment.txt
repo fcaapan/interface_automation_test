@@ -1,0 +1,4 @@
+[32mINFO    [0m root:testRegLogin.py:34 连接数据库成功
+[32mINFO    [0m root:testRegLogin.py:40 清理环境脏数据
+[32mINFO    [0m root:testRegLogin.py:41 执行sql语句
+[32mINFO    [0m root:testRegLogin.py:73 获取验证码成功

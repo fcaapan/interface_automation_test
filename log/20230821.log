@@ -1,0 +1,17 @@
+2023-08-21 14:26:03,089 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1//login
+2023-08-21 14:26:03,089 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-21 14:26:03,090 INFO [root] [request_base.py(requests_log:70)] - 接口请求头 ==>> None
+2023-08-21 14:26:03,090 INFO [root] [request_base.py(requests_log:71)] - 接口请求 params 参数 ==>> None
+2023-08-21 14:26:03,090 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 data 参数 ==>> {'keywords': 'test', 'password': '123456'}
+2023-08-21 14:26:03,090 INFO [root] [request_base.py(requests_log:73)] - 接口请求体 json 参数 ==>> None
+2023-08-21 14:26:03,092 INFO [root] [request_base.py(requests_log:74)] - 接口上传附件 files 参数 ==>> None
+2023-08-21 14:26:03,093 INFO [root] [request_base.py(requests_log:75)] - 接口 cookies 参数 ==>> None
+2023-08-21 15:46:17,038 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 15:52:44,625 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 16:40:53,939 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 16:41:05,673 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 16:41:35,142 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 16:42:26,929 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 16:43:43,657 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 16:48:23,916 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-21 20:22:28,579 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 

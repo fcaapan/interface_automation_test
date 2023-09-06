@@ -13,7 +13,7 @@ def login_1():
     params =request.form.get("p")
     if params =="a":
         data = {"success": True, "code": 10000, "message": "操作成功", "data": "......"}
-    elif:
+    elif params == "b":
         data = {"success": False, "code": 20001, "message": "用户名或密码错误", "data": "......"}
     else:
         data = {"success": False, "code": 99999, "message": "服务器超时", "data": "......"}

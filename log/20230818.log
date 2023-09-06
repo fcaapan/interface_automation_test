@@ -1,0 +1,16 @@
+2023-08-18 15:54:22,988 INFO [root] [logginger.py(<module>:47)] - 这是一个消息级别的日志
+2023-08-18 15:54:22,988 WARNING [root] [logginger.py(<module>:48)] - 这是一个警告
+2023-08-18 15:54:22,988 ERROR [root] [logginger.py(<module>:49)] - 出现BUG了
+2023-08-18 15:54:22,989 CRITICAL [root] [logginger.py(<module>:50)] - 系统马上就要崩溃了
+2023-08-18 17:29:10,084 INFO [root] [logginger.py(<module>:47)] - 这是一个消息级别的日志
+2023-08-18 17:29:10,085 WARNING [root] [logginger.py(<module>:48)] - 这是一个警告
+2023-08-18 17:29:10,085 ERROR [root] [logginger.py(<module>:49)] - 出现BUG了
+2023-08-18 17:29:10,085 CRITICAL [root] [logginger.py(<module>:50)] - 系统马上就要崩溃了
+2023-08-18 17:29:26,440 INFO [root] [logginger.py(<module>:47)] - 这是一个消息级别的日志
+2023-08-18 17:29:26,441 WARNING [root] [logginger.py(<module>:48)] - 这是一个警告
+2023-08-18 17:29:26,441 ERROR [root] [logginger.py(<module>:49)] - 出现BUG了
+2023-08-18 17:29:26,441 CRITICAL [root] [logginger.py(<module>:50)] - 系统马上就要崩溃了
+2023-08-18 17:30:18,480 INFO [root] [logginger.py(<module>:47)] - 这是一个消息级别的日志
+2023-08-18 17:30:18,480 WARNING [root] [logginger.py(<module>:48)] - 这是一个警告
+2023-08-18 17:30:18,480 ERROR [root] [logginger.py(<module>:49)] - 出现BUG了
+2023-08-18 17:30:18,480 CRITICAL [root] [logginger.py(<module>:50)] - 系统马上就要崩溃了

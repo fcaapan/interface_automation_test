@@ -1,4 +1,7 @@
+import os,sys
+sys.path.append(os.getcwd())
 import logging, os
+import logging.handlers
 import time
 
 from config import BASE_PATH
@@ -19,7 +22,7 @@ class Logger():
         self.sh = logging.StreamHandler()
         #    2. 创建文件处理器（配置将日志打印到指定的文件夹中）
         # 保存日志的文件地址
-        self.filename = BASE_PATH+"/log/" + "{}.log".format(time.strftime("%Y%m%d"))
+        self.filename = BASE_PATH + "/log/{}.log".format(time.strftime("%Y%m%d"))
         self.fh = logging.handlers.TimedRotatingFileHandler(self.filename, "midnight", 1, 7, encoding="utf-8")
         # 3. 创建格式化器对象
         # 日志打印格式
@@ -39,8 +42,7 @@ class Logger():
         self.logger.addHandler(self.fh)
 
 
-logging =Logger().logger
-print(111)
+logger =Logger().logger
 
 if __name__ == '__main__':
     logging.debug("最低级别的日志")

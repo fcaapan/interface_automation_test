@@ -1,0 +1,175 @@
+2023-09-06 12:48:34,560 INFO [root] [request_base.py(requests_log:70)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:48:34,560 INFO [root] [request_base.py(requests_log:71)] - 接口请求方式 ==>> POST
+2023-09-06 12:48:34,560 INFO [root] [request_base.py(requests_log:72)] - 接口请求头 ==>> None
+2023-09-06 12:48:34,561 INFO [root] [request_base.py(requests_log:73)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:48:34,561 INFO [root] [request_base.py(requests_log:74)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:48:34,561 INFO [root] [request_base.py(requests_log:75)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:48:34,561 INFO [root] [request_base.py(requests_log:76)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:48:34,562 INFO [root] [request_base.py(requests_log:77)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:49:48,033 INFO [root] [request_base.py(requests_log:73)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:49:48,033 INFO [root] [request_base.py(requests_log:74)] - 接口请求方式 ==>> POST
+2023-09-06 12:49:48,033 INFO [root] [request_base.py(requests_log:75)] - 接口请求头 ==>> None
+2023-09-06 12:49:48,033 INFO [root] [request_base.py(requests_log:76)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:49:48,034 INFO [root] [request_base.py(requests_log:77)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:49:48,034 INFO [root] [request_base.py(requests_log:78)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:49:48,034 INFO [root] [request_base.py(requests_log:79)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:49:48,034 INFO [root] [request_base.py(requests_log:80)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:75)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:76)] - 接口请求方式 ==>> POST
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:77)] - 接口请求头 ==>> None
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:78)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:79)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:80)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:81)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:51:07,331 INFO [root] [request_base.py(requests_log:82)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:79)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:80)] - 接口请求方式 ==>> POST
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:81)] - 接口请求头 ==>> None
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:82)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:83)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:84)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:85)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:51:44,210 INFO [root] [request_base.py(requests_log:86)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:51:45,225 INFO [root] [request_base.py(request:64)] - HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x034331D8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 12:52:19,154 INFO [root] [request_base.py(requests_log:78)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:52:19,154 INFO [root] [request_base.py(requests_log:79)] - 接口请求方式 ==>> POST
+2023-09-06 12:52:19,155 INFO [root] [request_base.py(requests_log:80)] - 接口请求头 ==>> None
+2023-09-06 12:52:19,155 INFO [root] [request_base.py(requests_log:81)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:52:19,155 INFO [root] [request_base.py(requests_log:82)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:52:19,155 INFO [root] [request_base.py(requests_log:83)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:52:19,155 INFO [root] [request_base.py(requests_log:84)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:52:19,155 INFO [root] [request_base.py(requests_log:85)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:52:20,168 INFO [root] [request_base.py(request:64)] - 错误
+2023-09-06 12:52:41,857 INFO [root] [request_base.py(requests_log:78)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:52:41,857 INFO [root] [request_base.py(requests_log:79)] - 接口请求方式 ==>> POST
+2023-09-06 12:52:41,857 INFO [root] [request_base.py(requests_log:80)] - 接口请求头 ==>> None
+2023-09-06 12:52:41,857 INFO [root] [request_base.py(requests_log:81)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:52:41,857 INFO [root] [request_base.py(requests_log:82)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:52:41,857 INFO [root] [request_base.py(requests_log:83)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:52:41,858 INFO [root] [request_base.py(requests_log:84)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:52:41,858 INFO [root] [request_base.py(requests_log:85)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:52:42,888 INFO [root] [request_base.py(request:64)] - 错误
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:81)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:82)] - 接口请求方式 ==>> POST
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:83)] - 接口请求头 ==>> None
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:84)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:85)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:86)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:87)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:55:51,804 INFO [root] [request_base.py(requests_log:88)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:55:52,822 INFO [root] [request_base.py(request:65)] - 错误
+2023-09-06 12:56:31,792 INFO [root] [request_base.py(requests_log:82)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:56:31,792 INFO [root] [request_base.py(requests_log:83)] - 接口请求方式 ==>> POST
+2023-09-06 12:56:31,792 INFO [root] [request_base.py(requests_log:84)] - 接口请求头 ==>> None
+2023-09-06 12:56:31,792 INFO [root] [request_base.py(requests_log:85)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:56:31,793 INFO [root] [request_base.py(requests_log:86)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:56:31,793 INFO [root] [request_base.py(requests_log:87)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:56:31,793 INFO [root] [request_base.py(requests_log:88)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:56:31,793 INFO [root] [request_base.py(requests_log:89)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:56:32,808 INFO [root] [request_base.py(request:65)] - 错误
+2023-09-06 12:57:10,016 INFO [root] [request_base.py(requests_log:82)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 12:57:10,016 INFO [root] [request_base.py(requests_log:83)] - 接口请求方式 ==>> POST
+2023-09-06 12:57:10,017 INFO [root] [request_base.py(requests_log:84)] - 接口请求头 ==>> None
+2023-09-06 12:57:10,017 INFO [root] [request_base.py(requests_log:85)] - 接口请求 params 参数 ==>> None
+2023-09-06 12:57:10,017 INFO [root] [request_base.py(requests_log:86)] - 接口请求体 data 参数 ==>> None
+2023-09-06 12:57:10,017 INFO [root] [request_base.py(requests_log:87)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 12:57:10,017 INFO [root] [request_base.py(requests_log:88)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 12:57:10,017 INFO [root] [request_base.py(requests_log:89)] - 接口 cookies 参数 ==>> None
+2023-09-06 12:57:11,031 INFO [root] [request_base.py(request:65)] - 错误
+2023-09-06 14:24:19,957 INFO [root] [request_base.py(requests_log:81)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:24:19,957 INFO [root] [request_base.py(requests_log:82)] - 接口请求方式 ==>> POST
+2023-09-06 14:24:19,957 INFO [root] [request_base.py(requests_log:83)] - 接口请求头 ==>> None
+2023-09-06 14:24:19,958 INFO [root] [request_base.py(requests_log:84)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:24:19,958 INFO [root] [request_base.py(requests_log:85)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:24:19,958 INFO [root] [request_base.py(requests_log:86)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:24:19,958 INFO [root] [request_base.py(requests_log:87)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:24:19,958 INFO [root] [request_base.py(requests_log:88)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:24:20,974 INFO [root] [request_base.py(request:64)] - 错误
+2023-09-06 14:25:08,083 INFO [root] [request_base.py(requests_log:81)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:82)] - 接口请求方式 ==>> POST
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:83)] - 接口请求头 ==>> None
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:84)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:85)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:86)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:87)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:25:08,084 INFO [root] [request_base.py(requests_log:88)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:25:09,097 INFO [root] [request_base.py(request:64)] - 错误
+2023-09-06 14:28:00,152 INFO [root] [request_base.py(requests_log:80)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:28:00,152 INFO [root] [request_base.py(requests_log:81)] - 接口请求方式 ==>> POST
+2023-09-06 14:28:00,152 INFO [root] [request_base.py(requests_log:82)] - 接口请求头 ==>> None
+2023-09-06 14:28:00,152 INFO [root] [request_base.py(requests_log:83)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:28:00,153 INFO [root] [request_base.py(requests_log:84)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:28:00,153 INFO [root] [request_base.py(requests_log:85)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:28:00,153 INFO [root] [request_base.py(requests_log:86)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:28:00,153 INFO [root] [request_base.py(requests_log:87)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:28:01,168 INFO [root] [request_base.py(request:64)] - 出错了
+2023-09-06 14:28:14,428 INFO [root] [request_base.py(requests_log:80)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:28:14,428 INFO [root] [request_base.py(requests_log:81)] - 接口请求方式 ==>> POST
+2023-09-06 14:28:14,429 INFO [root] [request_base.py(requests_log:82)] - 接口请求头 ==>> None
+2023-09-06 14:28:14,429 INFO [root] [request_base.py(requests_log:83)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:28:14,429 INFO [root] [request_base.py(requests_log:84)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:28:14,429 INFO [root] [request_base.py(requests_log:85)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:28:14,429 INFO [root] [request_base.py(requests_log:86)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:28:14,429 INFO [root] [request_base.py(requests_log:87)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:28:15,444 ERROR [root] [request_base.py(request:64)] - 出错了
+2023-09-06 14:28:53,338 INFO [root] [request_base.py(requests_log:80)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:28:53,339 INFO [root] [request_base.py(requests_log:81)] - 接口请求方式 ==>> POST
+2023-09-06 14:28:53,339 INFO [root] [request_base.py(requests_log:82)] - 接口请求头 ==>> None
+2023-09-06 14:28:53,339 INFO [root] [request_base.py(requests_log:83)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:28:53,339 INFO [root] [request_base.py(requests_log:84)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:28:53,340 INFO [root] [request_base.py(requests_log:85)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:28:53,340 INFO [root] [request_base.py(requests_log:86)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:28:53,341 INFO [root] [request_base.py(requests_log:87)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:28:54,363 ERROR [root] [request_base.py(request:64)] - 出错了HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0546B880>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 14:55:28,488 INFO [root] [request_base.py(requests_log:74)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:55:28,488 INFO [root] [request_base.py(requests_log:75)] - 接口请求方式 ==>> POST
+2023-09-06 14:55:28,488 INFO [root] [request_base.py(requests_log:76)] - 接口请求头 ==>> None
+2023-09-06 14:55:28,488 INFO [root] [request_base.py(requests_log:77)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:55:28,489 INFO [root] [request_base.py(requests_log:78)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:55:28,489 INFO [root] [request_base.py(requests_log:79)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:55:28,489 INFO [root] [request_base.py(requests_log:80)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:55:28,489 INFO [root] [request_base.py(requests_log:81)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:55:29,503 ERROR [root] [request_base.py(request:68)] - 请求错误：HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x035C31D8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 14:56:03,195 INFO [root] [request_base.py(requests_log:75)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:76)] - 接口请求方式 ==>> POST
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:77)] - 接口请求头 ==>> None
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:78)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:79)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:80)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:81)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:56:03,196 INFO [root] [request_base.py(requests_log:82)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:56:04,211 ERROR [root] [request_base.py(request:68)] - 请求错误：HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x033231D8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 14:56:31,513 INFO [root] [request_base.py(requests_log:75)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:76)] - 接口请求方式 ==>> POST
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:77)] - 接口请求头 ==>> None
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:78)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:79)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:80)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:81)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:56:31,514 INFO [root] [request_base.py(requests_log:82)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:56:32,527 ERROR [root] [request_base.py(request:68)] - 请求错误：HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x034E31D8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:76)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:77)] - 接口请求方式 ==>> POST
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:78)] - 接口请求头 ==>> None
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:79)] - 接口请求 params 参数 ==>> None
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:80)] - 接口请求体 data 参数 ==>> None
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:81)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-09-06 14:57:36,437 INFO [root] [request_base.py(requests_log:82)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 14:57:36,438 INFO [root] [request_base.py(requests_log:83)] - 接口 cookies 参数 ==>> None
+2023-09-06 14:57:37,450 ERROR [root] [request_base.py(request:68)] - 请求错误：HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD31D8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 15:04:44,422 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-09-06 15:04:44,835 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-09-06 15:04:44,836 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-09-06 15:04:44,836 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-09-06 15:04:44,837 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-09-06 15:04:44,855 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-09-06 15:04:44,862 INFO [root] [request_base.py(requests_log:76)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-09-06 15:04:44,863 INFO [root] [request_base.py(requests_log:77)] - 接口请求方式 ==>> POST
+2023-09-06 15:04:44,863 INFO [root] [request_base.py(requests_log:78)] - 接口请求头 ==>> None
+2023-09-06 15:04:44,864 INFO [root] [request_base.py(requests_log:79)] - 接口请求 params 参数 ==>> None
+2023-09-06 15:04:44,864 INFO [root] [request_base.py(requests_log:80)] - 接口请求体 data 参数 ==>> None
+2023-09-06 15:04:44,864 INFO [root] [request_base.py(requests_log:81)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-09-06 15:04:44,865 INFO [root] [request_base.py(requests_log:82)] - 接口上传附件 files 参数 ==>> None
+2023-09-06 15:04:44,865 INFO [root] [request_base.py(requests_log:83)] - 接口 cookies 参数 ==>> None
+2023-09-06 15:04:45,882 ERROR [root] [request_base.py(request:68)] - 请求错误：HTTPConnectionPool(host='127.0.0.1', port=9998): Max retries exceeded with url: //login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04378DC0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-09-06 15:04:46,203 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据

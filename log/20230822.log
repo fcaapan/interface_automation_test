@@ -1,0 +1,433 @@
+2023-08-22 10:43:19,295 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 10:43:19,581 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 10:43:19,705 INFO [root] [testRegLogin.py(pre_post_test:29)] - 连接数据库成功
+2023-08-22 10:58:12,626 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 10:58:12,798 INFO [root] [testRegLogin.py(test01_img_verify_code:66)] - 连接失败
+2023-08-22 10:58:12,802 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 10:58:12,805 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 10:58:12,805 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 10:58:12,813 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 10:58:32,182 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 10:58:32,323 INFO [root] [testRegLogin.py(test01_img_verify_code:66)] - 连接失败
+2023-08-22 10:58:32,326 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 10:58:32,326 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 10:58:32,327 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 10:58:32,327 INFO [root] [testRegLogin.py(test02_phone_verify_code:73)] - 获取验证码成功
+2023-08-22 10:58:32,328 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 10:58:47,245 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 10:58:47,400 INFO [root] [testRegLogin.py(test01_img_verify_code:66)] - 连接失败
+2023-08-22 10:58:47,527 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 10:58:47,528 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 10:58:47,528 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 10:58:47,529 INFO [root] [testRegLogin.py(test02_phone_verify_code:73)] - 获取验证码成功
+2023-08-22 10:58:47,530 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 10:59:17,525 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 10:59:17,672 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 10:59:17,672 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 10:59:17,672 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 10:59:17,673 INFO [root] [testRegLogin.py(test02_phone_verify_code:73)] - 获取验证码成功
+2023-08-22 10:59:17,675 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 10:59:58,424 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 10:59:58,573 INFO [root] [testRegLogin.py(test01_img_verify_code:66)] - 连接失败
+2023-08-22 10:59:58,698 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 10:59:58,699 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 10:59:58,699 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 10:59:58,700 INFO [root] [testRegLogin.py(test02_phone_verify_code:73)] - 获取验证码成功
+2023-08-22 10:59:58,700 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:03:13,590 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:03:13,739 INFO [root] [testRegLogin.py(test01_img_verify_code:66)] - 连接失败
+2023-08-22 11:03:13,742 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:03:13,743 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:03:13,743 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:03:13,745 INFO [root] [testRegLogin.py(test02_phone_verify_code:73)] - 获取验证码成功
+2023-08-22 11:03:13,746 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:04:07,965 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:04:08,120 INFO [root] [testRegLogin.py(test01_img_verify_code:66)] - 连接失败
+2023-08-22 11:04:08,242 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:04:08,243 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:04:08,243 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:04:08,244 INFO [root] [testRegLogin.py(test02_phone_verify_code:73)] - 获取验证码成功
+2023-08-22 11:04:08,245 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:05:01,227 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:05:01,371 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 11:05:01,373 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:05:01,374 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:05:01,374 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:05:01,374 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 11:05:01,375 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:05:08,130 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:05:08,274 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 11:05:08,277 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:05:08,278 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:05:08,278 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:05:08,279 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 11:05:08,280 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:48:21,940 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:48:37,672 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:49:06,069 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:49:55,454 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:49:55,616 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 11:49:55,619 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:49:55,619 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:49:55,619 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:49:55,620 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 11:49:55,622 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:49:55,627 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:49:55,627 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:49:55,627 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:49:55,628 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1//login
+2023-08-22 11:49:55,628 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 11:49:55,628 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 11:49:55,629 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 11:49:55,629 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '潘', 'password': 'b'}
+2023-08-22 11:49:55,629 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 11:49:55,629 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 11:49:55,629 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 11:49:56,994 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:51:11,993 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:51:26,200 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 11:51:26,363 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 11:51:26,365 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:51:26,365 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:51:26,365 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:51:26,366 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 11:51:26,367 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 11:51:26,374 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 11:51:26,375 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 11:51:26,375 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 11:51:26,376 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 11:51:26,376 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 11:51:26,376 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 11:51:26,377 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 11:51:26,377 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '潘', 'password': 'b'}
+2023-08-22 11:51:26,377 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 11:51:26,377 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 11:51:26,377 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 11:51:26,396 INFO [root] [reg_login_api.py(user_login:40)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 11:51:26,398 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 14:33:35,915 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 14:34:00,940 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 14:34:01,092 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 14:34:01,095 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 14:34:01,095 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 14:34:01,095 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 14:34:01,096 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 14:34:01,097 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 14:34:01,101 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 14:34:01,101 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 14:34:01,101 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 14:34:01,102 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 14:34:01,103 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 14:34:01,103 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 14:34:01,103 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 14:34:01,103 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 14:34:01,103 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 14:34:01,103 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 14:34:01,104 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 14:34:01,305 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 14:35:01,786 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 14:35:09,768 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 14:35:09,927 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 14:35:09,929 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 14:35:09,929 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 14:35:09,929 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 14:35:09,930 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 14:35:09,931 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 14:35:09,936 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 14:35:09,936 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 14:35:09,936 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 14:35:09,937 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 14:35:09,937 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 14:35:09,937 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 14:35:09,937 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 14:35:09,938 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 14:35:09,938 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 14:35:09,938 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 14:35:09,938 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 14:35:10,132 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 14:35:51,663 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 14:35:51,815 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 14:35:51,817 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 14:35:51,817 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 14:35:51,817 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 14:35:51,818 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 14:35:51,819 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 14:35:51,824 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 14:35:51,824 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 14:35:51,824 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 14:35:51,824 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 14:35:51,825 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 14:35:51,825 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 14:35:51,825 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 14:35:51,825 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:23:38,903 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:23:39,085 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:23:39,085 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:23:39,088 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:23:39,090 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:23:39,096 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:24:39,172 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:24:39,327 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:24:39,330 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:24:39,330 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:24:39,330 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:24:39,331 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:24:39,333 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:24:39,337 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:24:39,338 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:25:34,986 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:25:35,140 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:25:35,143 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:25:35,143 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:25:35,143 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:25:35,144 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:25:35,145 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:25:35,149 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:25:35,149 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:25:35,149 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:25:35,150 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:25:35,150 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:25:35,150 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:25:35,150 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:25:35,151 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:26:07,126 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:26:07,286 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:26:07,290 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:26:07,290 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:26:07,290 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:26:07,291 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:26:07,293 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:26:07,299 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:26:07,299 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:26:07,299 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:26:07,299 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:26:07,300 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:26:07,300 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:26:07,300 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:26:07,300 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:28:31,505 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:28:31,658 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:28:31,661 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:28:31,661 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:28:31,661 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:28:31,662 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:28:31,663 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:28:31,669 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:28:31,670 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:28:31,670 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:28:31,670 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:28:31,670 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:28:31,670 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:28:31,670 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:28:31,671 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:28:35,521 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:28:35,674 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:28:35,676 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:28:35,676 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:28:35,677 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:28:35,678 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:28:35,679 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:28:35,684 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:28:35,684 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:28:35,685 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:28:35,685 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:28:35,686 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:28:35,686 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:28:35,686 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:28:35,686 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': 123456}
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:30:13,171 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:30:45,003 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:30:45,003 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:30:45,004 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:30:45,004 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:30:45,004 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:30:45,004 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:30:45,004 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:30:45,004 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:31:12,957 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '18779095386', 'password': '123456'}
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:31:12,958 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:31:20,102 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:5000//login
+2023-08-22 17:31:20,102 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:31:20,102 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:31:20,103 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:31:20,103 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '1877449095386', 'password': '123456'}
+2023-08-22 17:31:20,103 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:31:20,103 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:31:20,103 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:33:48,161 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> {'keywords': '1877449095386', 'password': '123456'}
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> None
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:33:48,162 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'keywords': '1877449095386', 'password': '123456'}
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:34:44,600 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:36:02,249 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:36:02,249 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:36:02,249 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:36:02,249 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:36:02,249 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:36:02,250 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'keywords': '1877449095386', 'password': '123456'}
+2023-08-22 17:36:02,250 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:36:02,250 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:36:36,985 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:36:36,985 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:36:36,985 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:36:36,986 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:36:36,986 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:36:36,986 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'keywords': '1877449095386', 'password': '123456'}
+2023-08-22 17:36:36,986 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:36:36,986 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:37:00,066 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '1877449095386', 'password': '123456'}
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:37:00,067 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:37:00,083 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 20001, 'data': '......', 'message': '用户名或密码错误', 'success': False}
+2023-08-22 17:41:04,938 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:41:05,093 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:41:05,096 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:41:05,096 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:41:05,096 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:41:05,097 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:41:05,098 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:41:05,102 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:41:05,102 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:41:05,103 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:41:05,103 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:41:05,103 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:41:05,103 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 17:41:05,103 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:41:05,103 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:41:05,118 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:41:05,118 INFO [root] [testRegLogin.py(test04_user_login:81)] - <Response [200]>
+2023-08-22 17:42:45,549 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:42:45,706 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:42:45,709 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:42:45,710 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:42:45,710 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:42:45,711 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:42:45,712 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:42:45,716 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:42:45,716 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:42:45,716 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:42:45,716 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:42:45,717 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:42:45,717 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 17:42:45,717 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:42:45,717 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:42:45,733 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:46:32,464 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:46:32,611 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:46:32,614 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:46:32,615 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:46:32,615 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:46:32,616 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:46:32,617 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:46:32,622 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:46:32,623 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:46:32,638 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:46:32,639 INFO [root] [testRegLogin.py(test04_user_login:82)] - {'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:51:08,460 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:51:08,612 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:51:08,615 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:51:08,616 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:51:08,616 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:51:08,616 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:51:08,617 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:51:08,621 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:51:08,622 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:51:08,622 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:51:08,622 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:51:08,622 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:51:08,622 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 17:51:08,622 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:51:08,623 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:51:08,639 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:51:08,639 INFO [root] [testRegLogin.py(test04_user_login:82)] - {'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:51:33,836 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:51:33,981 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:51:33,981 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:51:33,981 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:51:33,981 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:51:33,982 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:51:33,982 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 17:51:33,982 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:51:33,982 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:51:33,996 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:51:33,996 INFO [root] [testRegLogin.py(test04_user_login:82)] - {'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:55:59,277 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:55:59,428 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 17:55:59,430 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:55:59,431 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 17:55:59,431 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 17:55:59,431 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 17:55:59,433 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据
+2023-08-22 17:55:59,437 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 17:55:59,437 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 17:55:59,437 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 17:55:59,437 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 17:55:59,438 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 17:55:59,438 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 17:55:59,438 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 17:55:59,438 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 17:55:59,452 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:55:59,452 INFO [root] [testRegLogin.py(test04_user_login:83)] - {'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 17:59:03,552 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 17:59:03,700 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:59:03,828 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:59:03,837 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 17:59:03,844 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 18:00:05,675 INFO [root] [sql_exe.py(<module>:13)] - 数据库的配置信息 {'host': '192.168.89.128', 'port': 3306, 'user': 'root', 'password': '123456', 'db': 'flask_demo'} 
+2023-08-22 18:00:05,854 INFO [root] [testRegLogin.py(pre_post_test:34)] - 连接数据库成功
+2023-08-22 18:00:05,854 INFO [root] [testRegLogin.py(pre_post_test:40)] - 清理环境脏数据
+2023-08-22 18:00:05,855 INFO [root] [testRegLogin.py(pre_post_test:41)] - 执行sql语句
+2023-08-22 18:00:05,856 INFO [root] [testRegLogin.py(test01_img_verify_code:65)] - 连接失败
+2023-08-22 18:00:05,858 INFO [root] [testRegLogin.py(test02_phone_verify_code:72)] - 获取验证码成功
+2023-08-22 18:00:05,864 INFO [root] [request_base.py(requests_log:67)] - 接口请求地址 ==>> http://127.0.0.1:9998//login
+2023-08-22 18:00:05,864 INFO [root] [request_base.py(requests_log:68)] - 接口请求方式 ==>> POST
+2023-08-22 18:00:05,865 INFO [root] [request_base.py(requests_log:69)] - 接口请求头 ==>> None
+2023-08-22 18:00:05,865 INFO [root] [request_base.py(requests_log:70)] - 接口请求 params 参数 ==>> None
+2023-08-22 18:00:05,865 INFO [root] [request_base.py(requests_log:71)] - 接口请求体 data 参数 ==>> None
+2023-08-22 18:00:05,865 INFO [root] [request_base.py(requests_log:72)] - 接口请求体 json 参数 ==>> {'username': '18779095386', 'password': '123456'}
+2023-08-22 18:00:05,865 INFO [root] [request_base.py(requests_log:73)] - 接口上传附件 files 参数 ==>> None
+2023-08-22 18:00:05,865 INFO [root] [request_base.py(requests_log:74)] - 接口 cookies 参数 ==>> None
+2023-08-22 18:00:05,880 INFO [root] [reg_login_api.py(user_login:41)] - 获取登录接口的响应体数据：{'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 18:00:05,880 INFO [root] [testRegLogin.py(test04_user_login:83)] - {'code': 10000, 'data': '......', 'message': '操作成功', 'success': True}
+2023-08-22 18:00:05,882 INFO [root] [testRegLogin.py(pre_post_test:44)] - 清理本次测试数据

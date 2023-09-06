@@ -1,9 +1,7 @@
-# 项目域名
 import os
-# 基准地址
-BASE_HOST = "http://127.0.0.1/"
+# 基准地址# 项目域名
+BASE_URL = "http://127.0.0.1:9998/"
 
-import logging.handlers
 BASE_PATH = os.path.dirname(__file__)
 
 #数据库配置信息

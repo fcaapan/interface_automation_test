@@ -1,0 +1,1 @@
+[32mINFO    [0m root:testRegLogin.py:66 连接失败

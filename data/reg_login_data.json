@@ -8,20 +8,20 @@
 		{"phone": "15814662512","imgVerifyCode": "8887","exp_status": 100,"description": "错误"},
 		{"phone": "15814662513","imgVerifyCode": "","exp_status": 100,"description": "错误"}],
 	"user_register":[
-		{"form_dict":{"phone":"18779095386","password":"qqq123","verifycode":"8888","phone_code":"666666","dy_server":"on"},"exp_status": 200,"description": "成功"},
-		{"form_dict":{"phone":"18712345678", "password": "qqq123", "verifycode": "8888", "phone_code": "666666", "dy_server": "on","invite_phone": "18779095386"},"exp_status": 200,"description": "成功"},
-		{"form_dict":{"phone":"18723456789","password":"qqq123","verifycode":"8866","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "错误"},
-		{"form_dict":{"phone":"18890901234","password":"qqq123","verifycode":"","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "不能为空"},
-		{"form_dict":{"phone":"18779095386","password":"qqq123","verifycode":"8888","phone_code":"666688","dy_server":"on"},"exp_status": 100,"description": "错误"},
-		{"form_dict":{"phone":"18890001234","password":"qqq123","verifycode":"8888","phone_code":"","dy_server":"on"},"exp_status": 100,"description": "不能为空"},
-		{"form_dict":{"phone":"18779093321","password":"qqq123","verifycode":"8888","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "已存在"},
+		{"form_dict":{"phone":"187795386","password":"qqq123","verifycode":"8888","phone_code":"666666","dy_server":"on"},"exp_status": 200,"description": "成功"},
+		{"form_dict":{"phone":"187125678", "password": "qqq123", "verifycode": "8888", "phone_code": "666666", "dy_server": "on","invite_phone": "18779095386"},"exp_status": 200,"description": "成功"},
+		{"form_dict":{"phone":"1872345789","password":"qqq123","verifycode":"8866","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "错误"},
+		{"form_dict":{"phone":"188909134","password":"qqq123","verifycode":"","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "不能为空"},
+		{"form_dict":{"phone":"1877909386","password":"qqq123","verifycode":"8888","phone_code":"666688","dy_server":"on"},"exp_status": 100,"description": "错误"},
+		{"form_dict":{"phone":"188900234","password":"qqq123","verifycode":"8888","phone_code":"","dy_server":"on"},"exp_status": 100,"description": "不能为空"},
+		{"form_dict":{"phone":"1877903321","password":"qqq123","verifycode":"8888","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "已存在"},
 		{"form_dict":{"phone":"18923874832","password":"","verifycode":"8888","phone_code":"666666","dy_server":"on"},"exp_status": 100,"description": "密码不能为空"},
 		{"form_dict":{"phone":"19834035891","password":"qqq123","verifycode":"8888","phone_code":"666666","dy_server":"off"},"exp_status": 100,"description": "我们的条款"}
 	],
 	"user_login":[
-		{"mobile": "18779095386","password": "qqq123","exp_status": 200,"description": "成功"},
+		{"mobile": "1877095386","password": "qqq123","exp_status": 200,"description": "成功"},
 		{"mobile": "","password": "123321","exp_status": 100,"description": "用户名不能为空"},
-		{"mobile": "18723456789","password": "123321","exp_status": 100,"description": "用户不存在"},
-		{"mobile": "18779093321","password": "","exp_status": 100,"description": "密码不能为空"}
+		{"mobile": "1872346789","password": "123321","exp_status": 100,"description": "用户不存在"},
+		{"mobile": "1877903321","password": "","exp_status": 100,"description": "密码不能为空"}
 	]
 }
