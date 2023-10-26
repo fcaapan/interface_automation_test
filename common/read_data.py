@@ -8,7 +8,7 @@ def read_json(filename, api_parameters):
     '''
     读取json文件
     :param filename: json文件名，字符串类型
-    :param apiname:指定获取api入参的数据
+    :param api_parameters: 指定获取api入参的数据
     :return:
     '''
     #打开文件json数据文件

@@ -14,3 +14,7 @@ mysql_config={
 "MYSQL_DB" :"flask_demo"
 }
 
+# 测试账号
+token ={
+    "xxx":"xxxxxx"
+}

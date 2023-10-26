@@ -43,8 +43,5 @@ def pre_post_test(request):
     del db
 
 
-def test_001(pre_post_test,name):
-    print(1)
-
 
 
